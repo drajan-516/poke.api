@@ -2,6 +2,7 @@ import {homePage} from "./pages/home.js";
 import {pokemonsPage} from "./pages/pokemons.js";
 import {pokemonDetailsPage} from "./pages/pokemonDetails.js";
 import {aboutPage} from "./pages/about.js";
+import {favPokePage} from "./pages/favorite.js";
 
 const app = document.getElementById('app');
 
