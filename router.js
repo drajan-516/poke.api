@@ -7,7 +7,7 @@ const app = document.getElementById('app');
 
 export function router() {
     const hash = window.location.hash || '#/home';
-    const parts = hash.split('/'); // ["localhost","...","..","pokemons","13"]
+    const parts = hash.split('/');
     const route = parts[1] || 'home';
     const id = parts[2];
 
@@ -21,6 +21,7 @@ export function router() {
             }
             break;
         case 'about': aboutPage(app); break;
+        case 'favorite': favPokePage(app); break;
         default: app.innerHTML = `<h2>404 - NOT FOUND!!!</h2>`;
     }
 }
