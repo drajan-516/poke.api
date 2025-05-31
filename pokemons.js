@@ -1,17 +1,35 @@
 import { getPokemonList } from "../services/pokeapi.js";
 
 export async function pokemonsPage(app) {
-    app.innerHTML = `<h2>Loading pokemons...</h2>`
+    let offset = 0;
+    const limit = 15;
 
-    const data = (await getPokemonList(40)).results;
-    const cards = data.map((poke, index) => `
+
+    async function loadMore() {
+        const data = (await getPokemonList(limit, offset)).results;
+
+        const cards = data.map((poke, index) => `
+           <li class="card">
+               <a href="#/pokemons/${offset + index + 1}">${poke.name}</a>
+           </li>
+       `).join('');
+
+        document.querySelector(".grid").innerHTML += cards;
+        offset += limit;
+        }
+     const data = (await getPokemonList(limit, offset)).results;
+     const cards = data.map((poke, index) => `
         <li class="card">
-            <a href="#/pokemons/${index + 1}">${poke.name}</a>
+            <a href="#/pokemons/${offset + index + 1}">${poke.name}</a>
         </li>
     `).join('');
 
-    app.innerHTML = `
+        offset += limit;
+
+        app.innerHTML = `
         <h2>Pokemons List</h2>
         <ul class="grid">${cards}</ul>
+        <button id="loadMore">Show More</button>
     `;
+        document.getElementById("loadMore").addEventListener("click", loadMore);
 }
