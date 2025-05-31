@@ -1,5 +1,4 @@
 import {getFavoritePokemons} from "../storage/fav.js";
-import {deleteFavoritePokemon} from "../storage/fav.js";
 
 export function favPokePage(app) {
     const fav = getFavoritePokemons();
