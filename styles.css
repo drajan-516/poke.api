@@ -63,5 +63,19 @@ nav {
     font-size: 20px;
     margin: 10px;
     padding: 10px;
+}
 
+button {
+    position: relative;
+    background-color: #caedb8;
+    border: none;
+    font-size: 15px;
+    color: #56694f;
+    padding: 8px;
+    width: 200px;
+    text-align: center;
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
 }
